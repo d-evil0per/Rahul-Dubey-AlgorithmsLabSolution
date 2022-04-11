@@ -15,26 +15,25 @@ import java.util.Scanner;
  */
 public class Paymoney {
 
-	
 	private int position;
+
 	public Paymoney() {
 		/**
 		 * @param None
 		 * @returns None
 		 */
-		
-		this.position=-1;
+
+		this.position = -1;
 	}
-	
-	public void checkTarget(int arr[],int target)
-	{
+
+	public void checkTarget(int arr[], int target) {
 		/**
 		 * @param int[],int
 		 * @returns None
 		 */
 		int Sum = 0;
 		boolean Flag = false;
-		int i=0;
+		int i = 0;
 		for (i = 0; i < arr.length; i++) {
 			Sum = Sum + arr[i];
 			if (Sum >= target) {
@@ -43,46 +42,40 @@ public class Paymoney {
 			}
 		}
 		if (Flag) {
-			this.position=i+1;
-		} 
-		else
-		{
-			this.position=-1;
+			this.position = i + 1;
+		} else {
+			this.position = -1;
 		}
-		
-		
+
 	}
+
 	public static void main(String[] args) {
 		/**
 		 * @param args
 		 * @returns None
 		 */
-		Paymoney pay= new Paymoney();
+		Paymoney pay = new Paymoney();
 		try (Scanner sc = new Scanner(System.in)) {
 			System.out.println("Enter the size of transaction array");
-			int size =sc.nextInt();
-			int arr[]= new int[size];
+			int size = sc.nextInt();
+			int arr[] = new int[size];
 			System.out.println("Enter the values of array");
-			for (int i=0;i<size;i++)
-			{
-				arr[i]=sc.nextInt();
+			for (int i = 0; i < size; i++) {
+				arr[i] = sc.nextInt();
 			}
-			
+
 			System.out.println("Enter the total no of targets that needs to be achieved");
-			int noOfTargets =sc.nextInt();
-			for (int j =0; j<noOfTargets;j++)
-			{
+			int noOfTargets = sc.nextInt();
+			for (int j = 0; j < noOfTargets; j++) {
 				System.out.println("Enter the value of target");
-				int target =sc.nextInt();
-				
+				int target = sc.nextInt();
+
 				pay.checkTarget(arr, target);
-				if(pay.position>0)
-				{
-					System.out.println("Target achieved after "+pay.position +" transactions");
-				}
-				else
-				{
-					System.out.println("Given target is not achieved");;
+				if (pay.position > 0) {
+					System.out.println("Target achieved after " + pay.position + " transactions");
+				} else {
+					System.out.println("Given target is not achieved");
+					;
 				}
 			}
 		}
